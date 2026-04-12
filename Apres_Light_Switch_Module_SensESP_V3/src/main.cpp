@@ -76,8 +76,14 @@ RelayCommandHandler* initialize_relay_channel(const RelayChannel& ch) {
   auto* controller = new SmartSwitchController(true);
   controller->connect_to(load_switch);
 
+  auto* skMetadata = new SKMetadata("",
+                                "",
+                                "",
+                                "",
+                                -1.0f,
+                                true);
   auto* feedback = new DigitalInputState(ch.feedback_pin, INPUT_PULLUP, 250);
-  feedback->connect_to(new SKOutputBool(sk_state_path, ch.relay_config_path));
+  feedback->connect_to(new SKOutputBool(sk_state_path, ch.relay_config_path, skMetadata));
 
   auto* relay_command_handler = new RelayCommandHandler(controller);
 
