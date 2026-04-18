@@ -46,15 +46,15 @@
 
 using namespace sensesp;
 
-const uint8_t kRelayPin1 = 25;     // D2 on Firebeetle, GPIO 25 is used for relay control.
-const uint8_t kRelayPin2 = 26;     // D3 on Firebeetle, GPIO 26 is used for relay control.
-const uint8_t kRelayPin3 = 0;      // D5 on Firebeetle, GPIO 0 is used for relay control.
-const uint8_t kRelayPin4 = 14;     // D6 on Firebeetle, GPIO 14 is used for relay control.
+const uint8_t kRelayPin1 = 12;     // D13 on Firebeetle, GPIO 12 is used for relay control.
+const uint8_t kRelayPin2 = 4;      // D12 on Firebeetle, GPIO 4 is used for relay control.
+const uint8_t kRelayPin3 = 16;     // D11 on Firebeetle, GPIO 16 is used for relay control.
+const uint8_t kRelayPin4 = 17;     // D10 on Firebeetle, GPIO 17 is used for relay control.
 
-const uint8_t kFeedbackPin1 = 17;  // D10 on Firebeetle, GPIO 17 is used for relay feedback.
-const uint8_t kFeedbackPin2 = 16;  // D11 on Firebeetle, GPIO 16 is used for relay feedback.
-const uint8_t kFeedbackPin3 = 4;   // D12 on Firebeetle, GPIO 4 is used for relay feedback.
-const uint8_t kFeedbackPin4 = 12;  // D13 on Firebeetle, GPIO 12 is used for relay feedback.
+const uint8_t kFeedbackPin1 = 25;  // D2 on Firebeetle, GPIO 25 is used for relay feedback.
+const uint8_t kFeedbackPin2 = 26;  // D3 on Firebeetle, GPIO 26 is used for relay feedback.
+const uint8_t kFeedbackPin3 = 0;   // D5 on Firebeetle, GPIO 0 is used for relay feedback.
+const uint8_t kFeedbackPin4 = 14;  // D6 on Firebeetle, GPIO 14 is used for relay feedback.
 
 struct RelayChannel {
   uint8_t relay_pin;
@@ -108,9 +108,9 @@ void setup() {
 
   RelayChannel relays[] = {
       {kRelayPin1, kFeedbackPin1, "anchorLight", "sensesp-relay1"},
-      {kRelayPin2, kFeedbackPin2, "runningLights", "sensesp-relay2"},
+      {kRelayPin2, kFeedbackPin2, "deckLight", "sensesp-relay2"},
       {kRelayPin3, kFeedbackPin3, "steamingLight", "sensesp-relay3"},
-      {kRelayPin4, kFeedbackPin4, "deckLight", "sensesp-relay4"},
+      {kRelayPin4, kFeedbackPin4, "runningLights", "sensesp-relay4"},
   };
 
   for (auto& ch : relays) {
